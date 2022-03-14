@@ -1,6 +1,7 @@
 dependencies:
   '@mapbox/node-pre-gyp': 1.0.8
   bcrypt: 5.0.1
+  cors: 2.8.5
   express: 4.17.3
   jsonwebtoken: 8.5.1
   nodemon: 2.0.15
@@ -415,6 +416,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
+  /cors/2.8.5:
+    dependencies:
+      object-assign: 4.1.1
+      vary: 1.1.2
+    dev: false
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==
   /crypto-random-string/2.0.0:
     dev: false
     engines:
@@ -2217,6 +2227,7 @@ packages:
 specifiers:
   '@mapbox/node-pre-gyp': ^1.0.8
   bcrypt: 5.0.1
+  cors: ^2.8.5
   express: ^4.17.1
   jsonwebtoken: ^8.5.1
   nodemon: ^2.0.15
