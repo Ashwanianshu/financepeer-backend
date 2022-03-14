@@ -51,26 +51,24 @@ const authenticateToken = (request, response, next) => {
 
 //User SignUp Api
 app.post("/signup/", async (request, response) => {
-  const { username, name, password, gender, location } = request.body;
+  const { username, password, gender, location } = request.body;
   const hashedPassword = await bcrypt.hash(request.body.password, 10);
   const selectUserQuery = `SELECT * FROM user WHERE username = '${username}'`;
   const dbUser = await db.get(selectUserQuery);
   if (dbUser === undefined) {
     const createUserQuery = `
       INSERT INTO
-        user (username, name, password, gender, location)
+        user (username, password, gender, location)
       VALUES
         (
           '${username}',
-          '${name}',
           '${hashedPassword}',
           '${gender}',
           '${location}'
         )`;
     await db.run(createUserQuery);
-    response.send(`User created successfully`);
+    response.status(200).json({ res: "user created" });
   } else {
-    response.status(400);
     response.status(400).json({ error: "user already exists" });
   }
 });
