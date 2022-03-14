@@ -71,7 +71,7 @@ app.post("/signup/", async (request, response) => {
     response.send(`User created successfully`);
   } else {
     response.status(400);
-    response.send("User already exists");
+    response.status(400).json({ error: "user already exists" });
   }
 });
 
