@@ -81,8 +81,7 @@ app.post("/login/", async (request, response) => {
   const selectUserQuery = `SELECT * FROM user WHERE username = '${username}'`;
   const dbUser = await db.get(selectUserQuery);
   if (dbUser === undefined) {
-    response.status(400);
-    response.send("Invalid User");
+    response.status(400).json({ error: "invalid user" });
   } else {
     const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
     if (isPasswordMatched === true) {
@@ -92,8 +91,7 @@ app.post("/login/", async (request, response) => {
       const jwtToken = jwt.sign(payload, "MY_SECRET_TOKEN");
       response.send({ jwtToken });
     } else {
-      response.status(400);
-      response.send("Invalid Password");
+      response.status(400).json({ error: "invalid password" });
     }
   }
 });
