@@ -104,13 +104,6 @@ app.get("/blog/", authenticateToken, async (request, response) => {
   response.send(statesArray);
 });
 
-app.post("/save/", authenticateToken, async (request, response) => {
-  const { id, title, body, userId } = request.body;
-  const saveBlogQuery = `INSERT INTO blog(id, title, body, userid) values(${id}, ${title}, ${body}, ${userId})`;
-  await db.run(saveBlogQuery);
-  response.send("Blog added successfully");
-});
-
 app.post("/saveblogs/", async (request, response) => {
   const blogsData = request.body;
   let values = [];
