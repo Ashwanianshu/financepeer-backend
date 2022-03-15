@@ -104,6 +104,13 @@ app.get("/blog/", authenticateToken, async (request, response) => {
   response.send(statesArray);
 });
 
+app.get("/delete/", authenticateToken, async (request, response) => {
+  const deleteBlogsQuery = `
+    DELETE FROM user;`;
+  await db.run(deleteBlogsQuery);
+  response.send("Delete query successful");
+});
+
 app.post("/saveblogs/", async (request, response) => {
   const blogsData = request.body;
   let values = [];

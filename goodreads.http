@@ -3,6 +3,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuc
 
 
 ###
+GET http://localhost:3000/delete/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuc2h1IiwiaWF0IjoxNjQ3MjUxODgwfQ.IOGfwPpYdZfnzlHRCYCnWar9fOrgH6dbW9cZdRXmjUk
+
+
+###
 
 POST http://localhost:3000/signup/
 Content-Type: application/json
